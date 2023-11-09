@@ -2,7 +2,7 @@
 
 ### FULL DISCLOSURE: 
 I asked ChatGPT to give me an outline of how to plan a full-stack CRUD application that's tested using ROBOT framework and Jenkins. I asked for a plan usingg TDD methodologies.<br>
-I will have the plan itself saved in a file called "the_plan.txt"<br>
+I will have the plan itself saved in a file called "the_plan.md"<br>
 The following is written by Chat-GPT as an example of a readme.
 
 #### Full-Stack CRUD Application with Test-Driven Development
