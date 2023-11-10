@@ -13,7 +13,7 @@ database_dir = os.path.join(base_dir, 'database')
 os.makedirs(database_dir, exist_ok=True)
 
 # SQLite database file will be created in the 'database' directory
-database_path = 'sqlite:///' + os.path.join(database_dir, 'database.sqlite')
+database_path = 'sqlite:///' + os.path.join(database_dir, 'tasks.sqlite')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
