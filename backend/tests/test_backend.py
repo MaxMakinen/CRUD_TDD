@@ -1,12 +1,11 @@
 # original tests
 from test_database import *
 #Tetsing after including SQLAlchemy
-import sys
-sys.path.append("../app.py")
 from backend.app import app, db
+from sqlalchemy import inspect
 from backend.models import Item
 
-database_path = '../database/tasks.db'
+database_path = './backend/database/tasks.db'
 table_name = 'tasks'
 
 
@@ -18,4 +17,5 @@ def test_database_table_presence():
 
 def test_items_table_exists():
     with app.app_context():
-        assert 'items' in db.engine.table_names()
+        inspector = inspect(db.engine)
+        assert 'items' in inspector.get_table_names()

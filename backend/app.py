@@ -4,8 +4,10 @@ from backend.models import Item
 
 app = Flask(__name__)
 
-# Replace 'sqlite:///database.sqlite' with the actual connection URL for your database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
+# SQLite database file will be created in the 'database' directory
+database_path = 'sqlite:///database/database.sqlite'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the database
