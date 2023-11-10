@@ -19,5 +19,6 @@ def test_items_table_exists():
     with app.app_context():
         inspector = inspect(db.engine)
         actual_table_names = inspector.get_table_names()
-        expected_table_name = Item.__table__.name.lower()
+        expected_table_name = Item.__table__.name
+        print("actual_table_names = {}\nexpected_table_name = {}".format(actual_table_names, expected_table_name))
         assert expected_table_name in actual_table_names
