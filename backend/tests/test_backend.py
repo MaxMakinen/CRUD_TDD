@@ -38,6 +38,6 @@ def test_add_new_item():
         # Query the 'items' table to check if the new item was added
         items = Item.query.all()
         assert len(items) == 1
-        assert items[0].name == 'New Item'
+        assert items[0].task == 'New task'
 
 # Add more tests for other CRUD operations if needed
