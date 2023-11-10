@@ -1,11 +1,19 @@
 from flask import Flask, jsonify
 from backend.database import db
 from backend.models import Item
+import os
 
 app = Flask(__name__)
 
+# Get absolute path
+base_dir = os.path.abspath(os.path.dirname(__file__))
+database_dir = os.path.join(base_dir, 'database')
+
+# Create the 'database directory if it isn't present
+os.makedirs(database_dir, exist_ok=True)
+
 # SQLite database file will be created in the 'database' directory
-database_path = 'sqlite:///database/database.sqlite'
+database_path = 'sqlite:///' + os.path.join(database_dir, 'database.sqlite')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

@@ -5,7 +5,7 @@ from backend.app import app, db
 from sqlalchemy import inspect
 from backend.models import Item
 
-database_path = './backend/database/tasks.db'
+database_path = '../database/tasks.db'
 table_name = 'tasks'
 
 
@@ -18,4 +18,6 @@ def test_database_table_presence():
 def test_items_table_exists():
     with app.app_context():
         inspector = inspect(db.engine)
-        assert 'items' in inspector.get_table_names()
+        actual_table_names = inspector.get_table_names()
+        expected_table_name = Item.__table__.name.lower()
+        assert expected_table_name in actual_table_names
