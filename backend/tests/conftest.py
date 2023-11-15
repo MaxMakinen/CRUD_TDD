@@ -2,8 +2,8 @@ import os
 import tempfile
 import pytest
 from backend.adtd_flask import create_app
-from backend.adtd_flask.models import Task, db
-#from backend.adtd_flask.database import db
+#from backend.adtd_flask.models import Task, db
+from backend.adtd_flask.database import db
 
 @pytest.fixture
 def app():

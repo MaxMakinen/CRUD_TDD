@@ -1,5 +1,6 @@
+from sqlalchemy.orm import declarative_base
 from flask_sqlalchemy import SQLAlchemy
-from adtd_flask.models import Task
 
-# Initialize the SQLAlchemy extension
-db = SQLAlchemy()
+
+Base = declarative_base()
+db = SQLAlchemy(model_class=Base)

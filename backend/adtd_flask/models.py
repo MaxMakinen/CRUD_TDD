@@ -7,13 +7,8 @@
 
 from datetime import datetime
 from sqlalchemy import Column, String, Integer, DateTime
-from sqlalchemy.orm import declarative_base
-from flask_sqlalchemy import SQLAlchemy
-from itertools import count
+from backend.adtd_flask.database import db
 
-
-Base = declarative_base()
-db = SQLAlchemy(model_class=Base)
 
 class Task(db.Model):
     __tablename__ = "tasks"

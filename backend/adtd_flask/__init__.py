@@ -1,15 +1,7 @@
 from flask import Flask
-#from .database import db
-from .models import db, Task
+#from .models import db, Task
+from .database import db
 import os
-
-# Get absolute path
-# base_dir = os.path.abspath(os.path.dirname(__file__))
-# database_dir = os.path.join(base_dir, 'database')
-# 
-# Create the 'database directory if it isn't present
-# os.makedirs(database_dir, exist_ok=True)
-
 
 # Application factory function
 def create_app(test_config=None):
