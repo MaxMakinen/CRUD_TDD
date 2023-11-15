@@ -28,12 +28,6 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # # SQLite database file will be created in the 'database' directory
-    # database_path = 'sqlite:///' + os.path.join(database_dir, 'database.sqlite')
-
-    # app.config['SQLALCHEMY_DATABASE_URI'] = database_path
-    # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
     # Initialize the database
     db.init_app(app)
 
@@ -45,7 +39,11 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello world!'
-    
+
+    # Register blueprint for user authentication
+    from . import auth
+    app.register_blueprint(auth.bp)
+
     return app
 
 # if __name__ == '__main__':
