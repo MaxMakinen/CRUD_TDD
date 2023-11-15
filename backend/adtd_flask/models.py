@@ -9,6 +9,7 @@ from datetime import datetime
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.orm import declarative_base
 from flask_sqlalchemy import SQLAlchemy
+from itertools import count
 
 
 Base = declarative_base()
@@ -23,12 +24,11 @@ class Task(db.Model):
     created = Column("created", DateTime, nullable=False)
     updated = Column("updated", DateTime)
     
-    def __init__(self, id=42, name="New task", description=""):
-        self.id = id
+    def __init__(self, name="New task", description=""):
         self.name = name
         self.description = description
         self.created = datetime.now()
-        self.updated = self.created
+        # self.updated = self.created
 
     def __repr__(self):
         return f"({self.id}) {self.name} {self.description} {self.created} {self.updated}"
