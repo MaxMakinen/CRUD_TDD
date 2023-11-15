@@ -31,7 +31,7 @@ def test_add_new_item():
         db.session.commit()
 
         # Add a new item
-        new_item = Item(task='New task')
+        new_item = Item(task='New task', description='Original description')
         db.session.add(new_item)
         db.session.commit()
 
