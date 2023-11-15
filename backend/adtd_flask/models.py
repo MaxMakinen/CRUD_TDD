@@ -24,11 +24,11 @@ class Task(db.Model):
     created = Column("created", DateTime, nullable=False)
     updated = Column("updated", DateTime)
     
-    def __init__(self, name="New task", description=""):
+    def __init__(self, name="New task", description="No description"):
         self.name = name
         self.description = description
         self.created = datetime.now()
         # self.updated = self.created
 
     def __repr__(self):
-        return f"({self.id}) {self.name} {self.description} {self.created} {self.updated}"
+        return f"({self.id}) {self.name}, {self.description} - {self.created} {self.updated}"
