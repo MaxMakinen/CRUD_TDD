@@ -27,3 +27,18 @@ class Task(db.Model):
 
     def __repr__(self):
         return f"({self.id}) {self.name}, {self.description} - {self.created} {self.updated}"
+
+class User(db.Model):
+    __tablename__ = "users"
+
+    id = Column("id", Integer, primary_key=True)
+    username = Column("username", String, nullable=False, unique=True)
+    password = Column("password", String, nullable=False)
+
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def __repr__(self):
+        # return f"({self.id}) {self.username}, {self.password}"
+        return f"({self.id}) {self.username}"
